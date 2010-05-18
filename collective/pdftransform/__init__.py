@@ -1,4 +1,11 @@
 from Products.PortalTransforms.libtransforms.utils import MissingBinary
+from zope.i18nmessageid import MessageFactory
+PDFTransformMessageFactory = MessageFactory(u'collective.pdftransform')
+
+from Products.validation import validation
+from validator import ImageOrPDFValidator
+validation.register(ImageOrPDFValidator('isValidImageOrPDF'))
+
 modules = [
     'pdf_image',
     ]

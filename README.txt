@@ -5,6 +5,20 @@ The main goal of this product is to allow PDF into ImageFields in
 Plone. It uses code written by David Brenneman for
 collective.pdfpeek.
 
+Install
+=======
+
+Just add the following lines in your buildout:
+  collective.pdfpeek
+  collective.pdftransform
+
+You must install pdftransform with the quick installer (no need to
+install pdkpeek, but it must be in the buildout as we use its methods)
+
+
+Using pdftransform in your site
+===============================
+
 collective.pdftransform adds a 'pdf_to_image' transform in Plone
 portal_transform.
 As transforms can not be used with FileField (or at least I did not
@@ -40,5 +54,5 @@ fields, for example, if we had written this:
 only the files submitted in the portrait and idScan fields would have
 been transformed.
 
-We should provide soon a custom validator for fields using this
-transformation.
+You can also use the validator called 'isValidImageOrPDF' in your
+Image fields.

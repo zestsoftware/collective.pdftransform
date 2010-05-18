@@ -4,6 +4,10 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
+- added validator called 'isValidImageOrPDF' that checks that the
+  submitted if is a PDF or an image (except BMP images as it can cause
+  problems). [vincent]
+
 - added update_form in utils, that can be used in 
   the post_validate method of your Archetype objects. [vincent]
 

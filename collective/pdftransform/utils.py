@@ -2,6 +2,9 @@ from Products.CMFCore.utils import getToolByName
 from ZPublisher.HTTPRequest import FileUpload
 
 class FakeData:
+    """ portal_transforms expects some data object, we fake it
+    here.
+    """
     def setData(self, d):
         self.data = d
 
