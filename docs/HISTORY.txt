@@ -4,4 +4,7 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
-- Initial release
+- added update_form in utils, that can be used in 
+  the post_validate method of your Archetype objects. [vincent]
+
+- Added transform to the portal_transform. [vincent]

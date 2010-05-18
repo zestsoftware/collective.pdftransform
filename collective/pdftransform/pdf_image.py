@@ -35,7 +35,7 @@ class PdfToImage:
 
     def convert(self, orig, data, **kwargs):
         converter = convertPDFToImage()
-        img = converter.ghostscript_transform(self, orig, 1)
+        img = converter.ghostscript_transform(orig, 1)
         data.setData(img)
         return data
 
