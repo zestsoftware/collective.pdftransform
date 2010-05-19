@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2010-05-19 09:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#. Default: "Bitmap images can not be used. Please use one of the following type: jpg, gif, png or pdf"
+#: ./validator.py:37
+msgid "error_img_validation_bmp"
+msgstr "Bitmap afbeeldingen kunnen niet worden gebruikt. Gebruik een van de volgende typen: jpg, gif, png or pdf a.u.b."
+
+#. Default: "The file you submitted in not an image file. Please use one of the following type: jpg, gif, png or pdf"
+#: ./validator.py:43
+msgid "error_img_validation_no_image"
+msgstr "Het bestand dat u verstuurd is geen afbeelding. Gebruik een van de volgende typen: jpg, gif, png or pdf a.u.b."
+
+#. Default: "The PDF file provided can not be used, please ensure that this is a valid PDF file and that it is not password protected."
+#: ./validator.py:27
+msgid "error_pdf_no_transformable"
+msgstr "Het ontvangen PDF bestand is niet te gebruiken, zorg er voor dat het PDF bestand geldig is en dat het wachtwoord niet beveiligd is."
+
