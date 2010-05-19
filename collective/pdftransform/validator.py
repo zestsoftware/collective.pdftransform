@@ -4,7 +4,7 @@ from Products.validation.interfaces import ivalidator
 from zope.i18n import translate
 from collective.pdftransform import PDFTransformMessageFactory as _
 
-from utils import is_pdf
+from utils import is_pdf, is_transformable_pdf
 
 class ImageOrPDFValidator:
     """ Checks that the file uploaded is a pdf or an image file.
@@ -21,7 +21,14 @@ class ImageOrPDFValidator:
             return True
 
         if is_pdf(value):
-            return True
+            if is_transformable_pdf(value):
+                return True
+
+            error = _(u'error_pdf_no_transformable',
+                      default = u'The PDF file provided can not be used, ' + \
+                      'please ensure that this is a valid PDF file and ' + \
+                      'that it is not password protected.')
+            return translate(error, context=kwargs['REQUEST'])
 
         value.seek(0)
         try:

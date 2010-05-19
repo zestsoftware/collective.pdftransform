@@ -1,5 +1,6 @@
 from Products.CMFCore.utils import getToolByName
 from ZPublisher.HTTPRequest import FileUpload
+from zope.app.component.hooks import getSite
 
 class FakeData:
     """ portal_transforms expects some data object, we fake it
@@ -15,6 +16,29 @@ def is_pdf(file):
     """ Tells if a file is a PDF or not.
     """
     return file.headers.get('content-type') == 'application/pdf'
+
+def is_transformable_pdf(file):
+    """ Tells if a file can be transformed using pdfpeek.
+    """
+    if not is_pdf(file):
+        return False
+
+    portal = getSite()
+    transform = getToolByName(portal, 'portal_transforms')
+    data = FakeData()
+
+    file.seek(0)
+    transformable = True
+    try:
+        transform.pdf_to_image.convert(file.read(), data)
+    except:
+        transformable = False
+
+    if not data.getData():
+        transformable = False
+
+    file.seek(0)
+    return transformable
 
 def update_form(context, request, fields = []):
     """ Transforms every pdf files in request.form
@@ -38,8 +62,8 @@ def update_form(context, request, fields = []):
             continue
 
         f = request.form[field]
-        if not is_pdf(f):
-            # Not a PDF, nothing to do.
+        if not is_transformable_pdf(f):
+            # Not a PDF we can transform, nothing to do.
             continue
 
         data = FakeData()

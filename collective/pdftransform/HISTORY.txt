@@ -4,6 +4,12 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
+- updated the validator to return an error if the PDF file can not be
+  transformed. [vincent]
+
+- added is_transformable_pdf in utils, tells if the PDF file uploaded
+  can be transformed with pdf_to_image. [vincent]
+
 - added validator called 'isValidImageOrPDF' that checks that the
   submitted if is a PDF or an image (except BMP images as it can cause
   problems). [vincent]
