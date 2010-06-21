@@ -4,7 +4,7 @@ Changelog
 0.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Bugfix in utils/is_transformable_pdf. [vincent]
 
 
 0.1 (2010-05-19)

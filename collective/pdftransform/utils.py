@@ -31,10 +31,9 @@ def is_transformable_pdf(file):
     transformable = True
     try:
         transform.pdf_to_image.convert(file.read(), data)
+        if not data.getData():
+            transformable = False
     except:
-        transformable = False
-
-    if not data.getData():
         transformable = False
 
     file.seek(0)
