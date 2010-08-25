@@ -1,7 +1,7 @@
 from zope.interface import implements
 from Products.PortalTransforms.interfaces import itransform
 
-from collective.pdfpeek.transforms import convertPDFToImage
+from collective.pdfpeek.transforms import convertPDFToImage, DEFAULT_OPTIONS
 
 class PdfToImage:
     """Transforms PDF to jpg images."""
@@ -35,7 +35,11 @@ class PdfToImage:
 
     def convert(self, orig, data, **kwargs):
         converter = convertPDFToImage()
-        img = converter.ghostscript_transform(orig, 1)
+        options = DEFAULT_OPTIONS
+        if 'pdf_resolution' in kwargs:
+            options['resolution'] = kwargs['pdf_resolution']
+
+        img = converter.ghostscript_transform(orig, 1, options)
         data.setData(img)
         return data
 

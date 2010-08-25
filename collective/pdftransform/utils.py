@@ -39,7 +39,7 @@ def is_transformable_pdf(file):
     file.seek(0)
     return transformable
 
-def update_form(context, request, fields = []):
+def update_form(context, request, fields = [], pdf_resolution = None):
     """ Transforms every pdf files in request.form
     into images.
     fields can be used to limit to a certain list of
@@ -67,7 +67,8 @@ def update_form(context, request, fields = []):
 
         data = FakeData()
         f.seek(0)
-        transform.pdf_to_image.convert(f.read(), data)
+        transform.pdf_to_image.convert(f.read(), data,
+                                       pdf_resolution = pdf_resolution)
 
         f.seek(0)
         f.truncate()
