@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.3 (unreleased)
+0.3 (2012-10-30)
 ----------------
 
 - Patched pdfpeek to use the default 1.2 release. [vincent]
