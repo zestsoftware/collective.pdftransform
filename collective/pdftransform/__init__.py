@@ -6,6 +6,9 @@ from Products.validation import validation
 from validator import ImageOrPDFValidator
 validation.register(ImageOrPDFValidator('isValidImageOrPDF'))
 
+from collective.pdftransform import patch
+patch.patch_pdfpeek()
+
 modules = [
     'pdf_image',
     ]

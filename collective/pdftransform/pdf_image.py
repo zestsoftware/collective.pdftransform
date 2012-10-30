@@ -1,7 +1,8 @@
 from zope.interface import implements
 from Products.PortalTransforms.interfaces import itransform
 
-from collective.pdfpeek.transforms import convertPDFToImage, DEFAULT_OPTIONS
+from collective.pdfpeek.transforms import convertPDFToImage
+from collective.pdftransform.patch import DEFAULT_OPTIONS
 
 class PdfToImage:
     """Transforms PDF to jpg images."""

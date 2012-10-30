@@ -4,6 +4,8 @@ Changelog
 0.3 (unreleased)
 ----------------
 
+- Patched pdfpeek to use the default 1.2 release. [vincent]
+
 - Allow setting PDF resolution in update_form. [vincent]
 
 

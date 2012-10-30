@@ -34,7 +34,7 @@ setup(name='collective.pdftransform',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
-          'collective.pdfpeek'
+          'collective.pdfpeek == 1.2'
       ],
       entry_points="""
       # -*- Entry points: -*-
