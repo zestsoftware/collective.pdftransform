@@ -4,7 +4,9 @@ Changelog
 0.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Do not explicitly require collective.pdfpeek 1.2, but make that a
+  minimum.
+  [maurits]
 
 
 0.3 (2012-10-30)
