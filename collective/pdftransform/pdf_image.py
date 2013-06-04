@@ -1,8 +1,8 @@
-from zope.interface import implements
 from Products.PortalTransforms.interfaces import itransform
 
 from collective.pdfpeek.transforms import convertPDFToImage
 from collective.pdftransform.patch import DEFAULT_OPTIONS
+
 
 class PdfToImage:
     """Transforms PDF to jpg images."""
@@ -31,18 +31,18 @@ class PdfToImage:
         if quality is None:
             quality = DEFAULT_OPTIONS['quality']
 
-        self.config = {'inputs' : inputs,
-                       'tab_width' : 4,
+        self.config = {'inputs': inputs,
+                       'tab_width': 4,
                        'resolution': resolution,
                        'quality': quality}
 
         self.config_metadata = {
-            'inputs' : ('list', 'Inputs',
-                        'Input(s) MIME type. Change with care.'),
-            'tab_width' : ('string', 'Tab width',
-                           'Number of spaces for a tab in the input'),
-            'resolution' : ('string', 'Resolution',
-                            'Default resolution'),
+            'inputs': ('list', 'Inputs',
+                       'Input(s) MIME type. Change with care.'),
+            'tab_width': ('string', 'Tab width',
+                          'Number of spaces for a tab in the input'),
+            'resolution': ('string', 'Resolution',
+                           'Default resolution'),
             'quality': ('string', 'Quality',
                         'PDF quality')
             }
@@ -79,6 +79,7 @@ class PdfToImage:
         img = converter.ghostscript_transform(orig, 1, options)
         data.setData(img)
         return data
+
 
 def register():
     return PdfToImage()

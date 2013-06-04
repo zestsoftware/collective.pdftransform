@@ -1,13 +1,13 @@
 from Products.CMFCore.utils import getToolByName
 
 from StringIO import StringIO
-from types import InstanceType
 
 
 def registerTransform(self, out, name, module):
     transforms = getToolByName(self, 'portal_transforms')
     transforms.manage_addTransform(name, module)
     print >> out, "Registered transform", name
+
 
 def unregisterTransform(self, out, name):
     transforms = getToolByName(self, 'portal_transforms')
@@ -29,6 +29,7 @@ def install(self):
                       'collective.pdftransform.pdf_image')
 
     return out.getvalue()
+
 
 def uninstall(self):
 
