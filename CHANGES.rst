@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.5 (unreleased)
+0.5 (2015-08-27)
 ----------------
 
 - Code cleanup.
