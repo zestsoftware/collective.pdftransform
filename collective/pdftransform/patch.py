@@ -9,6 +9,7 @@ DEFAULT_OPTIONS = {'quality': '99',
                              "-dBATCH",
                              "-dNOPAUSE"]}
 
+
 def ghostscript_transform(self, pdf, page_num, options=None):
     """
     ghostscript_transform takes an AT based object with an IPDF interface
@@ -28,18 +29,22 @@ def ghostscript_transform(self, pdf, page_num, options=None):
               "-dGraphicsAlphaBits=%s" % options['graphicsAlphaBits'],
               "-dTextAlphaBits=%s" % options['graphicsAlphaBits']
               ] + \
-              options['extra'] + \
-              ["-r%s" % options['resolution'],
-               first_page,
-               last_page,
-               "-sOutputFile=%stdout",
-               "-",
-               ]
+        options['extra'] + \
+        ["-r%s" % options['resolution'],
+         first_page,
+         last_page,
+         "-sOutputFile=%stdout",
+         "-",
+         ]
 
     jpeg = None
     """run the ghostscript command on the pdf file,
     capture the output png file of the specified page number"""
-    gs_process = subprocess.Popen(gs_cmd,stdout=subprocess.PIPE,stdin=subprocess.PIPE,)
+    gs_process = subprocess.Popen(
+        gs_cmd,
+        stdout=subprocess.PIPE,
+        stdin=subprocess.PIPE,
+    )
     gs_process.stdin.write(pdf)
     jpeg = gs_process.communicate()[0]
     gs_process.stdin.close()
@@ -47,15 +52,17 @@ def ghostscript_transform(self, pdf, page_num, options=None):
     if return_code == 0:
         logger.info("Ghostscript processed one page of a pdf file.")
     else:
-        logger.warn("Ghostscript process did not exit cleanly! Error Code: %d" % (return_code))
+        logger.warn(
+            "Ghostscript process did not exit cleanly! Error Code: %d" %
+            (return_code))
         jpeg = None
     return jpeg
-
 
 
 def patch_pdfpeek():
     convertPDFToImage._old_gs_transform = convertPDFToImage.ghostscript_transform
     convertPDFToImage.ghostscript_transform = ghostscript_transform
+
 
 def unpatch_pdfpeek():
     convertPDFToImage.ghostscript_transform = convertPDFToImage._old_gs_transform

@@ -11,7 +11,7 @@ patch.patch_pdfpeek()
 
 modules = [
     'pdf_image',
-    ]
+]
 
 g = globals()
 transforms = []
@@ -26,6 +26,7 @@ for m in modules:
     except:
         import traceback
         traceback.print_exc()
+
 
 def initialize(engine):
     pass

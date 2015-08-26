@@ -45,7 +45,7 @@ class PdfToImage:
                            'Default resolution'),
             'quality': ('string', 'Quality',
                         'PDF quality')
-            }
+        }
         if name:
             self.__name__ = name
 
