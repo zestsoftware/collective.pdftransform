@@ -1,10 +1,9 @@
-import PIL
-
 from Products.validation.interfaces import ivalidator
-from zope.i18n import translate
 from collective.pdftransform import PDFTransformMessageFactory as _
-
-from utils import is_pdf, is_transformable_pdf
+from collective.pdftransform.utils import is_pdf
+from collective.pdftransform.utils import is_transformable_pdf
+from zope.i18n import translate
+import PIL
 
 
 class ImageOrPDFValidator:

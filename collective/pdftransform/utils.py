@@ -55,7 +55,7 @@ def update_form(context, request, fields=[], pdf_resolution=None):
         fields = request.form.keys()
 
     for field in fields:
-        if not field in request.form:
+        if field not in request.form:
             # Should not happen, except if the user specified a wrong
             # field name.
             # XXX - raise an exception or log something.

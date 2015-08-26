@@ -1,13 +1,14 @@
+# Import this first, to avoid circular import.
+from collective.pdftransform.messagefactory import PDFTransformMessageFactory
+# Then the rest.
 from Products.PortalTransforms.libtransforms.utils import MissingBinary
-from zope.i18nmessageid import MessageFactory
-PDFTransformMessageFactory = MessageFactory(u'collective.pdftransform')
-
 from Products.validation import validation
-from validator import ImageOrPDFValidator
-validation.register(ImageOrPDFValidator('isValidImageOrPDF'))
-
 from collective.pdftransform import patch
+from collective.pdftransform.validator import ImageOrPDFValidator
+
+validation.register(ImageOrPDFValidator('isValidImageOrPDF'))
 patch.patch_pdfpeek()
+PDFTransformMessageFactory  # pyflakes
 
 modules = [
     'pdf_image',
