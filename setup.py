@@ -10,8 +10,8 @@ def get_file_contents_from_main_dir(filename):
     return contents
 
 version = get_file_contents_from_main_dir('version.txt')
-history = get_file_contents_from_main_dir('HISTORY.txt')
-readme = get_file_contents_from_main_dir('README.txt')
+history = open('CHANGES.rst').read().strip()
+readme = open('README.rst').read().strip()
 long = "%s\n\n\n%s" % (readme, history)
 
 setup(name='collective.pdftransform',
