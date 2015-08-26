@@ -4,7 +4,8 @@ Changelog
 0.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Code cleanup.
+  [maurits]
 
 
 0.4 (2013-06-04)
